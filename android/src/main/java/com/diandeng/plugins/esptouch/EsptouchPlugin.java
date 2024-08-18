@@ -80,7 +80,7 @@ public class EsptouchPlugin extends Plugin {
                     .setSSID(ssid.getBytes())
                     .setBSSID(TouchNetUtil.convertBssid2Bytes(bssid))
                     .setPassword(password == null ? null : password.getBytes())
-                    .setAESKey(Arrays.copyOfRange(aesKey.getBytes(), 0, AES_KEY_LENGTH))
+                    .setAESKey(aesKey == null ? null :Arrays.copyOfRange(aesKey.getBytes(), 0, AES_KEY_LENGTH))
                     .setReservedData(customData.getBytes())
                     .build();
             mProvisioner.startProvisioning(request, listener);
